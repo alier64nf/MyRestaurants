@@ -1,0 +1,44 @@
+name: delivery_app
+description: A new Flutter project.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.1.1 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_swiper_view: ^1.1.8
+  google_fonts: ^6.1.0
+  font_awesome_flutter: ^10.6.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/spaguetti_with_friends.jpg
+    - assets/images/aguacate.png
+    - assets/images/drink_coctels.jpg
+    - assets/images/china_food.jpg
+  # fonts:
+  #   - family: Roboto Condensed
+  #     fonts:
+  #         - asset: assets/fonts/RobotoCondensed-BoldItalic.ttf
+  #         - asset: assets/fonts/RobotoCondensed-BlackItalic.ttf
+  #         - asset: assets/fonts/RobotoCondensed-ExtraBoldItalic.ttf
+  #         - asset: assets/fonts/RobotoCondensed-ExtraLightItalic.ttf
+  #         - asset: assets/fonts/RobotoCondensed-Italic.ttf
+  #         - asset: assets/fonts/RobotoCondensed-LightItalic.ttf
+  #         - asset: assets/fonts/RobotoCondensed-MediumItalic.ttf
+  #         - asset: assets/fonts/RobotoCondensed-SemiBoldItalic.ttf
+  #         - asset: assets/fonts/RobotoCondensed-ThinItalic.ttf
+  #           style: italic
+  #         - asset: assets/fonts/RobotoCondensed-Black.ttf
+  #         - asset: assets/fonts/RobotoCondensed-Bold.ttf
+  #         - asset: assets/fonts/RobotoCondensed-Medium.ttf
+      
+  
