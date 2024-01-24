@@ -8,6 +8,9 @@ RoundedButton(
     Color? colorB,
     double? verticalsize,
     double? horizontalsize) {
+  Widget empty = const SizedBox(
+    width: 0,
+  );
   return Container(
     margin: EdgeInsets.symmetric(
         horizontal: horizontalsize ?? 40, vertical: verticalsize ?? 10),
@@ -20,8 +23,9 @@ RoundedButton(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          icon != null ? Icon(icon, color: Colors.white) : empty,
           Container(
-            margin: const EdgeInsets.only(right: 10),
+            margin: const EdgeInsets.symmetric(horizontal: 5),
             child: Text(
               text,
               style: Theme.of(context).primaryTextTheme.labelLarge!.copyWith(
@@ -29,10 +33,6 @@ RoundedButton(
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.5),
             ),
-          ),
-          Icon(
-            icon,
-            color: Colors.white,
           ),
         ],
       ),

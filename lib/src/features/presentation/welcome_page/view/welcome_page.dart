@@ -1,6 +1,7 @@
 import 'dart:ui';
 
-import 'package:delivery_app/src/features/presentation/widgets/rounded_button.dart';
+import 'package:delivery_app/src/features/presentation/communs_widgets/hedear_title.dart';
+import 'package:delivery_app/src/features/presentation/communs_widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -30,29 +31,26 @@ class WelcomePage extends StatelessWidget {
           children: [
             Container(
               margin: const EdgeInsets.only(top: 100),
-              padding: const EdgeInsets.symmetric(horizontal: 50),
-              child: Text(
-                'Delivery Fast food to your door'.toUpperCase(),
-                style:
-                    Theme.of(context).primaryTextTheme.displayMedium?.copyWith(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: headerTitle(
+                  context,
+                  'Delivery Fast food to your door'.toUpperCase(),
+                  Theme.of(context).colorScheme.onBackground,
+                  Theme.of(context).textTheme.displaySmall!,
+                  FontWeight.bold),
             ),
             Container(
               padding: const EdgeInsets.symmetric(
-                horizontal: 50,
+                horizontal: 30,
                 vertical: 40,
               ),
               margin: const EdgeInsets.only(bottom: 30),
-              child: Text(
-                'Set exact location to find the right restaurants near you',
-                style: Theme.of(context).primaryTextTheme.titleMedium?.copyWith(
-                      color: Colors.white.withOpacity(0.6),
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
+              child: headerTitle(
+                  context,
+                  'Set exact location to find the right restaurants near you',
+                  Theme.of(context).colorScheme.onBackground.withOpacity(0.6),
+                  Theme.of(context).textTheme.titleMedium!,
+                  FontWeight.bold),
             ),
             //Widget Personalizado recibe una funcion, icono?, colors?, context,
             RoundedButton(

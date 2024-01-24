@@ -1,5 +1,5 @@
-import 'package:delivery_app/src/features/presentation/widgets/rounded_Input.dart';
-import 'package:delivery_app/src/features/presentation/widgets/rounded_button.dart';
+import 'package:delivery_app/src/features/presentation/communs_widgets/rounded_Input.dart';
+import 'package:delivery_app/src/features/presentation/communs_widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

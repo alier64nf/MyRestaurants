@@ -26,6 +26,8 @@ class MainApp extends StatelessWidget {
           onPrimary: Color.fromRGBO(255, 140, 0, 1.0),
           primary: Color.fromRGBO(142, 142, 147, 1.2),
           secondary: Color.fromRGBO(10, 31, 68, 1.0),
+          onBackground: Colors.white,
+          background: Colors.black87,
         ),
         //Background color to app
         scaffoldBackgroundColor: Colors.white,

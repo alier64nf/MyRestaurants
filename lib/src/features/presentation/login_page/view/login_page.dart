@@ -1,5 +1,6 @@
-import 'package:delivery_app/src/features/presentation/widgets/rounded_Input.dart';
-import 'package:delivery_app/src/features/presentation/widgets/rounded_button.dart';
+import 'package:delivery_app/src/features/presentation/communs_widgets/hedear_title.dart';
+import 'package:delivery_app/src/features/presentation/communs_widgets/rounded_Input.dart';
+import 'package:delivery_app/src/features/presentation/communs_widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -11,6 +12,7 @@ class LoginPage extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle.dark.copyWith(
           systemStatusBarContrastEnforced: true,
+          statusBarIconBrightness: Brightness.light,
           statusBarColor: Colors.transparent),
     );
 
@@ -49,24 +51,18 @@ class LoginPage extends StatelessWidget {
           ),
         ),
         //Title
-        Text(
-          " Welcome back",
-          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                color: Colors.black87,
-                fontWeight: FontWeight.w700,
-                letterSpacing: 1.5,
-              ),
-        ),
+        headerTitle(context, "Welcome back", null,
+            Theme.of(context).textTheme.headlineMedium!, null),
+
         Container(
           margin: const EdgeInsets.only(bottom: 40),
           padding: const EdgeInsets.only(top: 20),
-          child: Text(
-            "Login to your account",
-            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  color: Theme.of(context).disabledColor,
-                  letterSpacing: 1.5,
-                ),
-          ),
+          child: headerTitle(
+              context,
+              "Login to your account",
+              Theme.of(context).disabledColor,
+              Theme.of(context).textTheme.bodyLarge!,
+              FontWeight.normal),
         ),
         RoundedInput(
           context,
@@ -92,12 +88,12 @@ class LoginPage extends StatelessWidget {
           padding: const EdgeInsets.all(5),
           child: GestureDetector(
             onTap: () => Navigator.pushNamed(context, 'ForgotPasswordPage'),
-            child: Text(
-              "Forgot your password ?",
-              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    letterSpacing: 1.5,
-                  ),
-            ),
+            child: headerTitle(
+                context,
+                "Forgot your password ?",
+                Theme.of(context).colorScheme.background,
+                Theme.of(context).textTheme.bodyLarge!,
+                null),
           ),
         ),
         Container(
@@ -105,21 +101,20 @@ class LoginPage extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                " Don't have an account ? ",
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      letterSpacing: 1.5,
-                      color: Colors.black54,
-                    ),
-              ),
+              headerTitle(
+                  context,
+                  " Don't have an account ?",
+                  Theme.of(context).disabledColor,
+                  Theme.of(context).textTheme.bodyLarge!,
+                  FontWeight.normal),
               GestureDetector(
                 onTap: () => Navigator.pushNamed(context, 'SignUpPage'),
-                child: Text(
-                  " Sign Up ",
-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      letterSpacing: 1.5,
-                      color: Theme.of(context).colorScheme.onPrimary),
-                ),
+                child: headerTitle(
+                    context,
+                    " Sign Up ",
+                    Theme.of(context).buttonTheme.colorScheme!.onSecondary,
+                    Theme.of(context).textTheme.bodyLarge!,
+                    null),
               ),
             ],
           ),

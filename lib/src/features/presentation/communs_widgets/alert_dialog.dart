@@ -1,9 +1,15 @@
-import 'package:delivery_app/src/features/presentation/widgets/rounded_button.dart';
+import 'package:delivery_app/src/features/presentation/communs_widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 
-alertDialog(BuildContext context, String title, String text, IconData? icon,
-    Image? img) {
-  return showDialog(
+Future alertDialog(
+    BuildContext context,
+    void Function() onTapButton,
+    String title,
+    String subtitle,
+    IconData? icon,
+    String labelButton,
+    Image? img) async {
+  await showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog.adaptive(
@@ -17,16 +23,16 @@ alertDialog(BuildContext context, String title, String text, IconData? icon,
             title: Text(title),
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(30))),
-            content: Container(
-              height: 250,
+            content: SizedBox(
+              height: 150,
               child: Column(
                 children: [
                   Container(
                     margin: const EdgeInsets.only(bottom: 0),
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 30),
+                        horizontal: 10, vertical: 10),
                     child: Text(
-                      text,
+                      subtitle,
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.titleMedium!.copyWith(
                             color: Colors.black54,
@@ -37,12 +43,12 @@ alertDialog(BuildContext context, String title, String text, IconData? icon,
                   ),
                   RoundedButton(
                       context,
-                      () => Navigator.pushNamed(context, 'LoginPage'),
-                      'Done',
+                      onTapButton,
+                      labelButton,
                       null,
                       Theme.of(context).buttonTheme.colorScheme?.onSecondary,
-                      40,
-                      null),
+                      10,
+                      10),
                 ],
               ),
             ));

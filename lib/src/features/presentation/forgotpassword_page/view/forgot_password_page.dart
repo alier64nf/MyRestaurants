@@ -1,6 +1,6 @@
-import 'package:delivery_app/src/features/presentation/widgets/alert_dialog.dart';
-import 'package:delivery_app/src/features/presentation/widgets/rounded_Input.dart';
-import 'package:delivery_app/src/features/presentation/widgets/rounded_button.dart';
+import 'package:delivery_app/src/features/presentation/communs_widgets/alert_dialog.dart';
+import 'package:delivery_app/src/features/presentation/communs_widgets/rounded_Input.dart';
+import 'package:delivery_app/src/features/presentation/communs_widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -56,9 +56,11 @@ class ForgotPasswordPage extends StatelessWidget {
                   context,
                   () => alertDialog(
                       context,
+                      () => Navigator.pushNamed(context, 'LoginPage'),
                       'Your password has been reset',
                       "Your'll shortly receive an email with a code to setup a new password",
                       FontAwesomeIcons.arrowsRotate,
+                      'Done',
                       null),
                   'Send',
                   null,

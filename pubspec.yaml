@@ -24,6 +24,10 @@ flutter:
     - assets/images/aguacate.png
     - assets/images/drink_coctels.jpg
     - assets/images/china_food.jpg
+    - assets/images/foodtrukey_health.jpg
+    - assets/images/Industrial_restaurant.jpg
+    - assets/images/Industrial_restaurant2.jpg
+
   # fonts:
   #   - family: Roboto Condensed
   #     fonts:
