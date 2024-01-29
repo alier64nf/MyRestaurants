@@ -1,15 +1,17 @@
-import 'package:delivery_app/src/features/presentation/tabs_page/explore_tab/view/widgets/card_collection.dart';
-import 'package:delivery_app/src/features/presentation/communs_widgets/header_actions.dart';
+import 'package:delivery_app/src/features/presentation/filter_page/view/filter_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_view/flutter_swiper_view.dart';
 //import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //_______Widgtes___Communs______
 import 'package:delivery_app/src/features/presentation/communs_widgets/hedear_title.dart';
+import 'package:delivery_app/src/features/presentation/communs_widgets/header_actions.dart';
+import 'package:delivery_app/src/features/presentation/communs_widgets/card_horizontal.dart';
+import 'package:delivery_app/src/features/presentation/communs_widgets/cardlist_vertical.dart';
 //import 'package:delivery_app/src/features/presentation/communs_widgets/rounded_Input.dart';
 //________Widgets_____Own____Exploretab____
-import 'package:delivery_app/src/features/presentation/tabs_page/explore_tab/view/widgets/card_places.dart';
-import 'package:delivery_app/src/features/presentation/tabs_page/explore_tab/view/widgets/card_popular_weeks.dart';
+
+import 'package:delivery_app/src/features/presentation/tabs_page/explore_tab/view/widgets/card_collection.dart';
 
 class ExploreTab extends StatefulWidget {
   const ExploreTab({super.key});
@@ -31,39 +33,38 @@ class _ExploreTab extends State<ExploreTab> {
           pinned: true,
           //snap: true,
           //stretch: true,
-          elevation: 5,
+          elevation: 0.5,
           backgroundColor: Colors.white,
           leadingWidth: double.maxFinite,
           leading: Container(
-            padding: EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
                   width: 200,
-                  height: 40,
-                  child: TextField(
-                      onTap: () => {},
-                      decoration: InputDecoration(
-                          border: const OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(30)),
-                            borderSide: BorderSide.none,
-                          ),
-                          floatingLabelBehavior: FloatingLabelBehavior.never,
-                          label: Row(
-                            children: [
-                              IconButton(
-                                  onPressed: () => {},
-                                  icon: const Icon(Icons.search),
-                                  color: Theme.of(context).disabledColor),
-                              headerTitle(
-                                  context,
-                                  'Search',
-                                  Theme.of(context).disabledColor,
-                                  Theme.of(context).textTheme.labelLarge!,
-                                  FontWeight.normal),
-                            ],
-                          ))),
+                  height: 50,
+                  child: GestureDetector(
+                    onTap: () => Navigator.pushNamed(context, 'SearchView'),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Icon(Icons.search,
+                              color: Theme.of(context).disabledColor),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: headerTitle(
+                              context,
+                              'Search',
+                              Theme.of(context).disabledColor,
+                              Theme.of(context).textTheme.labelLarge!,
+                              FontWeight.normal),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
                 DecoratedBox(
                   decoration: BoxDecoration(
@@ -73,7 +74,25 @@ class _ExploreTab extends State<ExploreTab> {
                           .colorScheme!
                           .onSecondary),
                   child: IconButton(
-                      onPressed: () => {},
+                      onPressed: () => {
+                            showModalBottomSheet<void>(
+                                elevation: 20,
+                                isScrollControlled: true,
+                                shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20),
+                                )),
+                                constraints: BoxConstraints.loose(
+                                    const Size.fromHeight(540)),
+                                useSafeArea: true,
+                                showDragHandle: true,
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return const FilterView();
+                                })
+                          },
+                      // Navigator.pushNamed(context, 'FilterView'),
                       icon: const Icon(
                         Icons.filter_list,
                         color: Colors.white,
@@ -106,38 +125,81 @@ class _ExploreTab extends State<ExploreTab> {
                 return ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (BuildContext context, int index) {
-                      return cardOnColumn(context);
+                      return cardOnColumn(
+                          context,
+                          'assets/images/Industrial_restaurant.jpg',
+                          "Andys's & Cindy diner",
+                          'Calle 1era /24 y 26',
+                          342,
+                          'Delivery',
+                          4.8,
+                          null,
+                          null);
                     });
               },
             ),
           ),
           //_____________________________________2second Elements Screen____________
           Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: headerAction(context, " Popular this week", 'Show all')),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 8.0, vertical: 7.0),
+              child: headerAction(context, () => {}, " Popular this week",
+                  'Show all', null, Icons.play_arrow)),
           //____________List Card en row___Popular this week__________
           SizedBox(
-            height: 350,
+            height: 320,
             child: Column(children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: cardOnRow(context),
+                child: cardOnRow(
+                    context,
+                    'assets/images/Industrial_restaurant2.jpg',
+                    "Analier's Delicious food",
+                    'Calle 3era / 68 y 70',
+                    234,
+                    'Free Delivery',
+                    5.0,
+                    null,
+                    null,
+                    true),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: cardOnRow(context),
+                child: cardOnRow(
+                    context,
+                    'assets/images/Industrial_restaurant2.jpg',
+                    "Analier's Delicious food",
+                    'Calle 3era / 68 y 70',
+                    234,
+                    'Free Delivery',
+                    5.0,
+                    null,
+                    null,
+                    true),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: cardOnRow(context),
+                child: cardOnRow(
+                    context,
+                    'assets/images/Industrial_restaurant2.jpg',
+                    "Analier's Delicious food",
+                    'Calle 3era / 68 y 70',
+                    234,
+                    'Free Delivery',
+                    5.0,
+                    null,
+                    null,
+                    true),
               ),
             ]),
           ),
           //_____Carrousel Card Collections_________
 
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: headerAction(context, "Collections", 'Show all'),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0),
+            child: headerAction(context, () => {}, "Collections", 'Show all',
+                null, Icons.play_arrow),
           ),
           SizedBox(
             height: 200,

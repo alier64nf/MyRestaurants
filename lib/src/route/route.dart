@@ -1,3 +1,5 @@
+import 'package:delivery_app/src/features/presentation/filter_page/view/filter_view.dart';
+import 'package:delivery_app/src/features/presentation/search_page/view/search_view.dart';
 import 'package:flutter/material.dart';
 
 //Pages of App
@@ -13,4 +15,6 @@ final routes = <String, WidgetBuilder>{
   'ForgotPasswordPage': (BuildContext context) => const ForgotPasswordPage(),
   'SignUpPage': (BuildContext context) => const SignUpPage(),
   'TabsPage': (BuildContext context) => const TabsPage(),
+  'SearchView': (BuildContext context) => const SearchView(),
+  'FilterView': (BuildContext context) => const FilterView(),
 };
