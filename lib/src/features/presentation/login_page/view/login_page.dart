@@ -1,8 +1,9 @@
-import 'package:delivery_app/src/features/presentation/communs_widgets/hedear_title.dart';
-import 'package:delivery_app/src/features/presentation/communs_widgets/rounded_Input.dart';
-import 'package:delivery_app/src/features/presentation/communs_widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import '../../communs_widgets/Buttons/rounded_Input.dart';
+import '../../communs_widgets/Buttons/rounded_button.dart';
+import '../../communs_widgets/Headers/hedear_title.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});

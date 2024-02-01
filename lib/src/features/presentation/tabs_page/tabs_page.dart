@@ -1,4 +1,4 @@
-import 'package:delivery_app/src/features/presentation/communs_widgets/alert_dialog.dart';
+import 'package:delivery_app/src/features/presentation/communs_widgets/Alerts/alert_dialog.dart';
 import 'package:delivery_app/src/features/presentation/tabs_page/explore_tab/view/explore_tab.dart';
 import 'package:delivery_app/src/features/presentation/tabs_page/favorite_tab/view/favorite_tab.dart';
 import 'package:delivery_app/src/features/presentation/tabs_page/my_order_tab/view/my_order_tab.dart';

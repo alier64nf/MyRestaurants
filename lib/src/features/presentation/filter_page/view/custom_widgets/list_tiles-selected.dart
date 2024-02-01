@@ -1,5 +1,6 @@
-import 'package:delivery_app/src/features/presentation/communs_widgets/hedear_title.dart';
 import 'package:flutter/material.dart';
+
+import '../../../communs_widgets/Headers/hedear_title.dart';
 
 // ignore: must_be_immutable
 class ListTilesSelectd extends StatefulWidget {

@@ -4,14 +4,15 @@ import 'package:flutter_swiper_view/flutter_swiper_view.dart';
 //import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //_______Widgtes___Communs______
-import 'package:delivery_app/src/features/presentation/communs_widgets/hedear_title.dart';
-import 'package:delivery_app/src/features/presentation/communs_widgets/header_actions.dart';
-import 'package:delivery_app/src/features/presentation/communs_widgets/card_horizontal.dart';
-import 'package:delivery_app/src/features/presentation/communs_widgets/cardlist_vertical.dart';
 //import 'package:delivery_app/src/features/presentation/communs_widgets/rounded_Input.dart';
 //________Widgets_____Own____Exploretab____
 
 import 'package:delivery_app/src/features/presentation/tabs_page/explore_tab/view/widgets/card_collection.dart';
+
+import '../../../communs_widgets/Cards/card_horizontal.dart';
+import '../../../communs_widgets/Cards/cardlist_vertical.dart';
+import '../../../communs_widgets/Headers/header_actions.dart';
+import '../../../communs_widgets/Headers/hedear_title.dart';
 
 class ExploreTab extends StatefulWidget {
   const ExploreTab({super.key});

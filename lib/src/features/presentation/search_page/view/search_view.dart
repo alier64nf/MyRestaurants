@@ -2,12 +2,12 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_view/flutter_swiper_view.dart';
 
-//_______Widgets Communs__________
-import 'package:delivery_app/src/features/presentation/communs_widgets/header_actions.dart';
-import 'package:delivery_app/src/features/presentation/communs_widgets/hedear_title.dart';
-import 'package:delivery_app/src/features/presentation/communs_widgets/card_horizontal.dart';
-import 'package:delivery_app/src/features/presentation/communs_widgets/cardlist_vertical.dart';
+import '../../communs_widgets/Cards/card_horizontal.dart';
+import '../../communs_widgets/Cards/cardlist_vertical.dart';
+import '../../communs_widgets/Headers/header_actions.dart';
+import '../../communs_widgets/Headers/hedear_title.dart';
 
+//_______Widgets Communs__________
 class SearchView extends StatefulWidget {
   const SearchView({super.key});
 

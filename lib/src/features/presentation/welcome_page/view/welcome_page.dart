@@ -1,8 +1,9 @@
 import 'dart:ui';
 
-import 'package:delivery_app/src/features/presentation/communs_widgets/hedear_title.dart';
-import 'package:delivery_app/src/features/presentation/communs_widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
+
+import '../../communs_widgets/Buttons/rounded_button.dart';
+import '../../communs_widgets/Headers/hedear_title.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});

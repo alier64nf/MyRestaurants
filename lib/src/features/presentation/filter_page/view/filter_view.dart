@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 //_______Widgets Communs__________
 
-import 'package:delivery_app/src/features/presentation/communs_widgets/hedear_title.dart';
+import '../../communs_widgets/Headers/hedear_title.dart';
 
 class FilterView extends StatefulWidget {
   const FilterView({super.key});
@@ -88,10 +88,11 @@ class _FilterView extends State<FilterView> with TickerProviderStateMixin {
                     Theme.of(context).textTheme.titleMedium!,
                     null),
               ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: PriceFilterRSlider(),
-              ),
+              Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 20),
+                  margin: const EdgeInsets.only(bottom: 18),
+                  child: const PriceFilterRSlider()),
             ]),
           ),
         ],
