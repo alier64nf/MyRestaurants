@@ -210,17 +210,19 @@ class _ExploreTab extends State<ExploreTab> {
 
           SizedBox(
             height: 200,
-            child: Swiper(
-              itemCount: 1,
-              itemBuilder: (BuildContext context, int index) {
-                return ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (BuildContext context, int index) {
-                      return GestureDetector(
-                          onTap: () => {},
-                          child: cardCollection(context, false));
-                    });
-              },
+            child: GestureDetector(
+              onTap: () =>
+                  {Navigator.pushNamed(context, 'CollectionDetailsPage')},
+              child: Swiper(
+                itemCount: 1,
+                itemBuilder: (BuildContext context, int index) {
+                  return ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (BuildContext context, int index) {
+                        return cardCollection(context, false);
+                      });
+                },
+              ),
             ),
           ),
         ])),

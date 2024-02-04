@@ -25,6 +25,7 @@ class _SearchView extends State<SearchView> {
           SliverAppBar(
             pinned: true,
             backgroundColor: Theme.of(context).colorScheme.onBackground,
+            iconTheme: Theme.of(context).iconTheme,
             leading: GestureDetector(
               onTap: () => {Navigator.pop(context)},
               child: Icon(Icons.close),

@@ -21,6 +21,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       //Tema de la App general claro
       theme: ThemeData(
+        iconTheme: IconThemeData(color: Colors.black),
         //disabledColor: const Color.fromRGBO(142, 142, 147, 1.2),
         colorScheme: const ColorScheme.light(
           onPrimary: Color.fromRGBO(255, 140, 0, 1.0),
@@ -47,7 +48,7 @@ class MainApp extends StatelessWidget {
 
         //Tema de la Barra de la app
         appBarTheme: const AppBarTheme(
-          iconTheme: IconThemeData(color: Colors.black),
+          iconTheme: IconThemeData(color: Colors.white),
         ),
       ),
       //Comienzo de la App

@@ -27,7 +27,12 @@ class CollectionPage extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: cardCollection(context, true),
+                  child: GestureDetector(
+                      onTap: () => {
+                            Navigator.pushNamed(
+                                context, 'CollectionDetailsPage')
+                          },
+                      child: cardCollection(context, true)),
                 );
               })
         ]));
