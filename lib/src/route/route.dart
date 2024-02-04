@@ -1,4 +1,5 @@
-import 'package:delivery_app/src/features/presentation/filter_page/view/filter_view.dart';
+import 'package:delivery_app/src/features/presentation/collections_page/view/collection_page.dart';
+// import 'package:delivery_app/src/features/presentation/filter_page/view/filter_view.dart';
 import 'package:delivery_app/src/features/presentation/search_page/view/search_view.dart';
 import 'package:flutter/material.dart';
 
@@ -16,5 +17,6 @@ final routes = <String, WidgetBuilder>{
   'SignUpPage': (BuildContext context) => const SignUpPage(),
   'TabsPage': (BuildContext context) => const TabsPage(),
   'SearchView': (BuildContext context) => const SearchView(),
-  'FilterView': (BuildContext context) => const FilterView(),
+  // 'FilterView': (BuildContext context) => const FilterView(),
+  'CollectionsPage': (BuildContext context) => const CollectionPage(),
 };
