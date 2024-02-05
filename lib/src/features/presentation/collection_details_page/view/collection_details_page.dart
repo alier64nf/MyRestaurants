@@ -71,17 +71,14 @@ class CollectionDetailsPage extends StatelessWidget {
                       blurRadius: 10,
                     )
                   ]),
-              child: cardElevatedWidget(
-                  context,
-                  'assets/images/Industrial_restaurant2.jpg',
-                  "Analier's Delicious food",
-                  'Calle 3era / 68 y 70',
-                  234,
-                  'Free Delivery',
-                  5.0,
-                  null,
-                  null,
-                  true),
+              child: CardElevatedWid(
+                  pathImage: 'assets/images/Industrial_restaurant2.jpg',
+                  title: "Analier's Delicious food",
+                  address: 'Calle 3era / 68 y 70',
+                  ratings: 234,
+                  labelButton: 'Free Delivery',
+                  level: 5.0,
+                  hasbutton: true),
             );
           })
     ]));

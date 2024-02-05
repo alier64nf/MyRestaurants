@@ -5,19 +5,20 @@ import 'package:flutter/material.dart';
 import '../Headers/hedear_title.dart';
 import 'cardlist_vertical.dart';
 
-class CardElevatedWid extends StatefulElement {
-  CardElevatedWid(
-    super.widget,
-    String pathImage,
-    String title,
-    String address,
+class CardElevatedWid extends StatefulWidget {
+  CardElevatedWid({
+    super.key,
+    required String pathImage,
+    required String title,
+    String? address,
     int? ratings,
     String? labelButton,
+    Color? colorLabelButton,
     double? level,
     double? widthImage,
     double? heightImage,
-    bool hasbutton,
-  );
+    required bool hasbutton,
+  });
 
   late String pathImage;
   late String title;
@@ -27,12 +28,33 @@ class CardElevatedWid extends StatefulElement {
   late double? level;
   late double? widthImage;
   late double? heightImage;
-  late bool isFavorite;
+  bool isFavorite = false;
 
+  @override
   _CardElevatedWid createState() => _CardElevatedWid();
 }
 
-class _CardElevatedWid {
+class _CardElevatedWid extends State<CardElevatedWid> {
+  Widget withButton() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.all(4),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: Theme.of(context).buttonTheme.colorScheme!.onSecondary),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(30),
+        onTap: () => {},
+        child: headerTitle(
+            context,
+            widget.labelButton!,
+            Theme.of(context).colorScheme.onBackground,
+            Theme.of(context).textTheme.labelSmall!,
+            null),
+      ),
+    );
+  }
+
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -41,7 +63,7 @@ class _CardElevatedWid {
         ClipRRect(
           borderRadius: BorderRadius.circular(15),
           child: Image.asset(
-            pathImage,
+            widget.pathImage,
             width: 90,
             height: 90,
             fit: BoxFit.cover,
@@ -54,13 +76,13 @@ class _CardElevatedWid {
               children: [
                 Container(
                   padding: const EdgeInsets.all(2.5),
-                  child: headerTitle(context, title, null,
+                  child: headerTitle(context, widget.title, null,
                       Theme.of(context).textTheme.titleSmall!, null),
                 ),
                 IconButton(
                   icon: Icon(
                     Icons.bookmark,
-                    color: isFavorite ? Colors.red : Colors.grey,
+                    color: widget.isFavorite ? Colors.red : Colors.grey,
                   ),
                   onPressed: () => {},
                 )
@@ -71,7 +93,7 @@ class _CardElevatedWid {
               margin: const EdgeInsets.only(bottom: 5.5),
               child: headerTitle(
                   context,
-                  address,
+                  widget.address,
                   Theme.of(context).disabledColor,
                   Theme.of(context).textTheme.bodySmall!,
                   FontWeight.normal),
@@ -87,11 +109,11 @@ class _CardElevatedWid {
                           .colorScheme!
                           .onSecondary,
                       size: 15),
-                  headerTitle(context, level.toString(), null,
+                  headerTitle(context, widget.level.toString(), null,
                       Theme.of(context).textTheme.bodySmall!, null),
                   headerTitle(
                       context,
-                      "($ratings ratings)",
+                      "($widget.ratings ratings)",
                       Theme.of(context).disabledColor,
                       Theme.of(context).textTheme.bodySmall!,
                       FontWeight.normal),
