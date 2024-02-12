@@ -12,14 +12,16 @@ class CollectionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            backgroundColor: Theme.of(context).colorScheme.onBackground,
-            flexibleSpace: Center(
-              child: Container(
-                margin: const EdgeInsets.only(top: 20),
-                child: headerTitle(context, 'Collections', null,
-                    Theme.of(context).textTheme.headlineSmall!, null),
-              ),
-            )),
+          backgroundColor: Theme.of(context).colorScheme.onBackground,
+          flexibleSpace: Center(
+            child: Container(
+              margin: const EdgeInsets.only(top: 20),
+              child: headerTitle(context, 'Collections', null,
+                  Theme.of(context).textTheme.headlineSmall!, null),
+            ),
+          ),
+          iconTheme: Theme.of(context).iconTheme,
+        ),
         body: CustomScrollView(slivers: [
           SliverGrid.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

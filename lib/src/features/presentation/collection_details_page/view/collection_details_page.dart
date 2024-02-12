@@ -7,6 +7,7 @@ import '../../communs_widgets/Cards/cardlist_vertical.dart';
 
 //_______Widgets Communs__________
 
+// ignore: must_be_immutable
 class CollectionDetailsPage extends StatelessWidget {
   CollectionDetailsPage({super.key});
 
@@ -14,47 +15,52 @@ class CollectionDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: CustomScrollView(slivers: [
-      SliverAppBar.large(
-        floating: true,
-        pinned: false,
-        snap: true,
-        expandedHeight: 250,
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        flexibleSpace: Stack(
-          children: [
-            const ClipRRect(
-              child: Image(
-                width: double.infinity,
-                height: 250,
-                fit: BoxFit.cover,
-                image: AssetImage('assets/images/china_food.jpg'),
+        body: CustomScrollView(
+      slivers: [
+        SliverAppBar.large(
+          floating: true,
+          pinned: false,
+          snap: true,
+          expandedHeight: 250,
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          flexibleSpace: Stack(
+            children: [
+              const ClipRRect(
+                child: Image(
+                  width: double.infinity,
+                  height: 250,
+                  fit: BoxFit.cover,
+                  image: AssetImage('assets/images/china_food.jpg'),
+                ),
               ),
-            ),
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  headerTitle(
-                      context,
-                      'Asia',
-                      Theme.of(context).colorScheme.onBackground,
-                      Theme.of(context).textTheme.headlineMedium!,
-                      null),
-                  headerTitle(
-                      context,
-                      'Restaurant',
-                      Theme.of(context).colorScheme.onBackground,
-                      Theme.of(context).textTheme.headlineMedium!,
-                      null),
-                ],
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    headerTitle(
+                        context,
+                        'Asia',
+                        Theme.of(context).colorScheme.onBackground,
+                        Theme.of(context).textTheme.headlineMedium!,
+                        null),
+                    headerTitle(
+                        context,
+                        'Restaurant',
+                        Theme.of(context).colorScheme.onBackground,
+                        Theme.of(context).textTheme.headlineMedium!,
+                        null),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-      SliverList.builder(
+        SliverAppBar(
+          title: headerTitle(context, '128 Places', null,
+              Theme.of(context).textTheme.titleMedium!, null),
+        ),
+        SliverList.separated(
           itemCount: 20,
           itemBuilder: (BuildContext context, index) {
             return Container(
@@ -78,9 +84,16 @@ class CollectionDetailsPage extends StatelessWidget {
                   ratings: 234,
                   labelButton: 'Free Delivery',
                   level: 5.0,
-                  hasbutton: true),
+                  hasButton: true),
             );
-          })
-    ]));
+          },
+          separatorBuilder: (BuildContext context, index) {
+            return SizedBox(
+              height: 10,
+            );
+          },
+        )
+      ],
+    ));
   }
 }
