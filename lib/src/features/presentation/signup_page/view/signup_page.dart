@@ -19,12 +19,8 @@ class SignUpPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: Container(
-          margin: const EdgeInsets.only(top: 30),
-          child: BackButton(
-            onPressed: () => {Navigator.pop(context)},
-          ),
-        ),
+        flexibleSpace: const Text(''),
+        iconTheme: Theme.of(context).iconTheme,
       ),
       body: SafeArea(
         child: CustomScrollView(slivers: [

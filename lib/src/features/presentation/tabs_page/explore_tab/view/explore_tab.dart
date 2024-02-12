@@ -7,7 +7,7 @@ import 'package:flutter_swiper_view/flutter_swiper_view.dart';
 //import 'package:delivery_app/src/features/presentation/communs_widgets/rounded_Input.dart';
 //________Widgets_____Own____Exploretab____
 
-import 'package:delivery_app/src/features/presentation/tabs_page/explore_tab/view/widgets/card_collection.dart';
+import 'package:delivery_app/src/features/presentation/communs_widgets/Cards/card_collection.dart';
 
 import '../../../communs_widgets/Cards/card_horizontal.dart';
 import '../../../communs_widgets/Cards/cardlist_vertical.dart';
@@ -199,20 +199,30 @@ class _ExploreTab extends State<ExploreTab> {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0),
-            child: headerAction(context, () => {}, "Collections", 'Show all',
-                null, Icons.play_arrow),
+            child: headerAction(
+                context,
+                () => Navigator.pushNamed(context, 'CollectionsPage'),
+                "Collections",
+                'Show all',
+                null,
+                Icons.play_arrow),
           ),
+
           SizedBox(
             height: 200,
-            child: Swiper(
-              itemCount: 1,
-              itemBuilder: (BuildContext context, int index) {
-                return ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (BuildContext context, int index) {
-                      return cardCollection(context);
-                    });
-              },
+            child: GestureDetector(
+              onTap: () =>
+                  {Navigator.pushNamed(context, 'CollectionDetailsPage')},
+              child: Swiper(
+                itemCount: 1,
+                itemBuilder: (BuildContext context, int index) {
+                  return ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (BuildContext context, int index) {
+                        return cardCollection(context, false);
+                      });
+                },
+              ),
             ),
           ),
         ])),
